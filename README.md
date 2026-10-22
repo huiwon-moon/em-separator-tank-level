@@ -27,7 +27,10 @@ Separator Tank Level의 다중 시점 미래 예측을 위한 시계열 ML 파�
 ├── fig/                    # (비공개) XGBoost vs Naive(단순 이동 예측) 평가 시각화
 ├── results/                # 추론 결과 CSV
 ├── src/
-│   └── data_split.py       # WET 모드 구간 추출 & 훈련/테스트 데이터 분할
+│   └── data_concat.py      # 데이터 병합
+│   └── data_imputation.py  # 결측치 처리 (ffill & linear interpolation)
+│   └── data_preprocess.py  # WET 모드 구간 추출
+│   └── data_split.py       # 훈련/테스트 데이터 분할
 │   └── evaluation.py       # 성능 평가 코드
 │   └── features.py         # feature engineering
 │   └── model.py            # 모델 구조
