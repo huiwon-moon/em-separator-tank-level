@@ -70,8 +70,8 @@ def main():
 
     # 1. 데이터 로드
     print("\n 1. Loading Pre-split CSV Datasets...")
-    train_path = os.path.join(args.data_dir, f'train_df.csv')
-    val_path = os.path.join(args.data_dir, f'val_df.csv')
+    train_path = os.path.join(args.data_dir, f'train_data.csv')
+    val_path = os.path.join(args.data_dir, f'val_data.csv')
     
     if not os.path.exists(train_path):
         raise FileNotFoundError(f"Train dataset not found at: {train_path}")
@@ -154,7 +154,7 @@ def main():
 
     # 4. Test 데이터 전처리 및 파이프라인 적용
     print("\n 4. Loading & Preprocessing Test Dataset...")
-    test_path = os.path.join(args.data_dir, f'test_df.csv')
+    test_path = os.path.join(args.data_dir, f'test_data.csv')
     if not os.path.exists(test_path):
         raise FileNotFoundError(f"Test dataset not found at: {test_path}")
 
