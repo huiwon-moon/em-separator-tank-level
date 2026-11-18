@@ -118,18 +118,18 @@ class XGBMultiOutputModel:
         return self
 
     def predict(self, X_test: pd.DataFrame, base_target_series: pd.Series = None):
-            """예측 수행"""
-            if not self.is_fitted:
-                raise RuntimeError("모델이 아직 학습되지 않았습니다. fit()을 먼저 실행하세요.")
-    
-            self.model.set_params(device="cpu")
+        """예측 수행"""
+        if not self.is_fitted:
+            raise RuntimeError("모델이 아직 학습되지 않았습니다. fit()을 먼저 실행하세요.")
 
-            delta_pred = self.model.predict(X_test)
-    
-            if base_target_series is not None:
-                base_val = base_target_series.reshape(-1, 1)
-                actual_pred = delta_pred + base_val
-                return actual_pred
+        self.model.set_params(device="cpu")
+
+        delta_pred = self.model.predict(X_test)
+
+        if base_target_series is not None:
+            base_val = base_target_series.reshape(-1, 1)
+            actual_pred = delta_pred + base_val
+            return actual_pred
     
     def save(
             self,
